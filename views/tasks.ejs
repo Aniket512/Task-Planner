@@ -1,0 +1,32 @@
+<%- include('partials/header') %>
+
+<div class="jumbotron text-center">
+  <div class="container">
+    <h1 class="display-3">Plan Your Tasks!</h1>
+    
+    <hr>    
+
+    <div class="container">
+        <div class="row">
+            <%tasks.forEach(function(task){%>
+             <div class="col-sm-6 col-lg-4 mb-3">
+                <div class="card mb-3 h-100">
+                    <div class="card-body">
+                        <h5 class="card-title"><%=task.title%></h5>
+                        <p class="card-text"><%=task.content%></p>
+
+                        <a href="/tasks/delete/<%=task._id%>" class="mr-3" name="delete" ><button>Delete</button></a>
+                        <a href="/edit/<%=task._id%>" name="edit" ><button>Edit</button></a>
+                    </div>
+                </div>
+            </div>
+            <%})%>
+        </div>
+    </div>
+    
+    <a class="btn btn-light btn-lg" href="/logout" role="button">Log Out</a>
+    <a class="btn btn-dark btn-lg" href="/submit" role="button">Add a Task</a>
+  </div>
+</div>
+
+<%- include('partials/footer') %>
